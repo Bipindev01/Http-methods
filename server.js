@@ -4,6 +4,12 @@ const app = express()
 
 app.use(express.json());
 
+
+app.use((req,res,next)=> {
+  console.log('this is a middleware')
+  next()
+})
+
 app.get('/users', (req, res) => {
     // code to handle GET request for /users
   res.status(200).send('GET request to the users')
